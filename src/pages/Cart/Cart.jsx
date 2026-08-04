@@ -33,6 +33,9 @@ const Cart = () => {
     setCart(cart.filter((item) => item.id !== id));
   }
 
+  function clearCart() {
+    setCart([]);
+  }
   const subtotal = cart.reduce(
     (total, item) => total + item.price * item.quantity,
     0,
@@ -45,11 +48,18 @@ const Cart = () => {
     <>
       <div className="cart-page py-5">
         <div className="container">
-          <div className="mb-5">
-            <h1 className="cart-title">Your Cart</h1>
-            <p className="cart-subtitle">
-              Experience serenity with every selection.
-            </p>
+          <div className="mb-5 d-flex justify-content-between align-items-center">
+            <div className="leftHeader">
+              <h1 className="cart-title">Your Cart</h1>
+              <p className="cart-subtitle">
+                Experience serenity with every selection.
+              </p>
+            </div>
+            <div className="rightHeader">
+              <button  className="btn btn-danger rounded-5" onClick={clearCart}>
+                Clear Cart
+              </button>
+            </div>
           </div>
 
           <div className="row g-5">
@@ -69,7 +79,7 @@ const Cart = () => {
                       <p>{item.description}</p>
 
                       <span className="price">
-                        ${item.price * item.quantity}
+                        ${(item.price * item.quantity).toFixed(2)}
                       </span>
 
                       <div className="cart-actions">
