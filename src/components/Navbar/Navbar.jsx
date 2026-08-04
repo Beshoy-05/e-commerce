@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 import { SearchContext } from "../../context/search";
+import { CartContext } from "../../context/CartContext";
 
 import SearchBar from "../SearchBar/SearchBar";
 
@@ -9,6 +10,7 @@ import "./Navbar.css";
 
 const Navbar = () => {
   const { setSearch } = useContext(SearchContext);
+  const { cart } = useContext(CartContext);
 
   return (
     <nav className="navbar navbar-expand-lg shadow-sm sticky-top">
@@ -58,7 +60,7 @@ const Navbar = () => {
               <i className="bi bi-bag fs-5"></i>
 
               <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
-                0
+                {cart.length}
               </span>
             </Link>
           </div>

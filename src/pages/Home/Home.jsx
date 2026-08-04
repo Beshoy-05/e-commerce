@@ -49,11 +49,11 @@ const Home = () => {
     <div className="shop-page">
       <section className="hero-section text-center">
         <div className="container">
-          <h1 className="display-3 fw-bold mb-3">Seasonal Rituals</h1>
+          <h1 className="display-3 fw-bold mb-3">Shop Smarter, Live Better</h1>
 
           <p className="lead text-muted mx-auto">
-            Curated essentials for your home sanctuary, designed to foster
-            mindfulness and sensory peace.
+            Find everything you need in one place with premium quality, great
+            prices, and a seamless shopping experience.
           </p>
         </div>
       </section>
@@ -61,14 +61,11 @@ const Home = () => {
       <section className="home-container pb-5">
         <div className="products-section">
           <div className="row g-5">
-
             <div className="col-lg-3">
               <div className="filter">
                 <Filter />
               </div>
             </div>
-
-         
 
             <div className="col-lg-9">
               <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap">
