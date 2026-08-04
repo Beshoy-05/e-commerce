@@ -52,10 +52,9 @@ const Navbar = () => {
           <div className="navbar-actions d-flex align-items-center gap-3">
             <SearchBar setSearch={setSearch} />
 
-            <Link to="/register" className="text-dark text-decoration-none">
-              <i className="bi bi-person fs-5"></i>
-            </Link>
-
+             <Link to="/login" className="text-dark text-decoration-none">
+    <i className="bi bi-person fs-5"></i>
+</Link>
             <Link to="/cart" className="cart-icon position-relative text-dark">
               <i className="bi bi-bag fs-5"></i>
 
