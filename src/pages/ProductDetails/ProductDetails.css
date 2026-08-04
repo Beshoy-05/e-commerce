@@ -1,0 +1,40 @@
+.product-image{
+    background:#f8f7f5;
+    border-radius:18px;
+    padding:30px;
+}
+
+.product-image img{
+    width:100%;
+    height:550px;
+    object-fit:contain;
+}
+
+.product-details h1{
+    font-size:48px;
+    font-weight:700;
+    color:#2f2f2f;
+}
+
+.product-price{
+    color:#8b5e3c;
+    font-size:38px;
+    font-weight:bold;
+}
+
+.product-details p{
+    color:#666;
+    line-height:1.8;
+}
+
+.product-details li{
+    margin-bottom:15px;
+    color:#555;
+    font-size:17px;
+}
+
+.product-details .btn{
+    width:320px;
+    border-radius:50px;
+    padding:15px;
+}

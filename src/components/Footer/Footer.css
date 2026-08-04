@@ -1,0 +1,22 @@
+footer
+{
+  background-color: #f5f5f4;
+}
+.tracking-widest {
+  letter-spacing: 0.2em;
+}
+.font-serif {
+  font-family: 'Playfair Display', serif;
+}
+.custom-hover:hover {
+  color: #000 !important;
+  text-decoration: underline !important;
+}
+.subscribe-btn {
+  background-color: #e6ccb8;
+  letter-spacing: 1px;
+  transition: opacity 0.3s ease;
+}
+.subscribe-btn:hover {
+  opacity: 0.8;
+}

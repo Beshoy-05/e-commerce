@@ -1,0 +1,53 @@
+.filter-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.filter-card h4 {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.categories-list {
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.form-check {
+  margin-bottom: 12px;
+}
+
+.form-check-label {
+  cursor: pointer;
+  color: #555;
+}
+
+.form-check-input {
+  cursor: pointer;
+}
+
+.form-check-input:checked {
+  background-color: #8b5e3c;
+  border-color: #8b5e3c;
+}
+
+.form-range {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.form-range::-webkit-slider-thumb {
+  background: #8b5e3c;
+}
+
+.price-value {
+  font-weight: bold;
+  color: #8b5e3c;
+}
+
+.filter-card .btn {
+  border-radius: 8px;
+  font-weight: 600;
+}
