@@ -1,0 +1,13 @@
+.object-fit-cover{
+    object-fit: cover;
+}
+
+@media (min-width:992px){
+
+.object-fit-cover{
+
+height:520px;
+
+}
+
+}

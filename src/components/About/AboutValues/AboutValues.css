@@ -1,0 +1,19 @@
+.icon-box{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background:#212529;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:28px;
+}
+
+.value-card{
+    transition:.3s;
+}
+
+.value-card:hover{
+    transform:translateY(-8px);
+}

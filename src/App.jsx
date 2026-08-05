@@ -33,6 +33,8 @@ function App() {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
+
+
   const [wishlist, setWishlist] = useState(() => {
     const savedWishlist = localStorage.getItem("wishlist");
     return savedWishlist ? JSON.parse(savedWishlist) : [];
@@ -65,8 +67,6 @@ function App() {
               <Route path="/cart" element={<Cart />} />
               <Route path="/wishlist" element={<Wishlist />} />
               <Route path="/product/:id" element={<ProductDetails />} />
-
-              {/* Authentication */}
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
             </Routes>

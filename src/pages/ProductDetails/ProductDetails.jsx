@@ -13,6 +13,7 @@ const ProductDetails = () => {
   const { wishlist, setWishlist } = useContext(WishlistContext);
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [success, setSuccess] = useState("");
 
   useEffect(() => {
     getProduct(id).then((res) => {
@@ -21,36 +22,33 @@ const ProductDetails = () => {
     });
   }, [id]);
 
- function addToCart(product) {
-  const existingItem = cart.find(
-    (item) => item.id === product.id
-  );
+  function addToCart(product) {
+    const existingItem = cart.find((item) => item.id === product.id);
 
-  if (!existingItem) {
-    setCart([
-      ...cart,
-      {
-        ...product,
-        quantity: 1,
-      },
-    ]);
-  } else {
-    const newCart = cart.map((item) => {
-      if (item.id === product.id) {
-        return {
-          ...item,
-          quantity: item.quantity + 1,
-        };
-      }
+    if (!existingItem) {
+      setCart([
+        ...cart,
+        {
+          ...product,
+          quantity: 1,
+        },
+      ]);
+    } else {
+      const newCart = cart.map((item) => {
+        if (item.id === product.id) {
+          return {
+            ...item,
+            quantity: item.quantity + 1,
+          };
+        }
 
-      return item;
-    });
+        return item;
+      });
 
-    setCart(newCart);
+      setCart(newCart);
+    }
+    setSuccess("Item added to cart successfully!");
   }
-}
-
-
 
   if (loading) {
     return <Loader />;
@@ -61,13 +59,16 @@ const ProductDetails = () => {
   function toggleWishlist(product) {
     if (isWishlisted) {
       setWishlist(wishlist.filter((item) => item.id !== product.id));
+      setSuccess("Item removed from wishlist successfully!");
     } else {
       setWishlist([...wishlist, product]);
+      setSuccess("Item added to wishlist successfully!");
     }
   }
 
   return (
     <>
+
       <div className="product-details-page py-5">
         <div className="container">
           <div className="row g-5 align-items-center">
@@ -120,6 +121,12 @@ const ProductDetails = () => {
                   <strong>Discount:</strong> {product.discountPercentage}%
                 </p>
               </div>
+{success && (
+  <p className="text-success fw-bold mt-3">
+    {success}
+  </p>
+)}
+
 
               <div className="d-flex align-items-center gap-3 mt-4">
                 <button
