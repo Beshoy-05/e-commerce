@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 
 import PagesLoading from "./components/PageLoading/PagesLoading";
+import SupportChat from "./components/SupportChat/SupportChat";
 
 import { SearchContext } from "./context/search";
 import { CartContext } from "./context/CartContext";
@@ -74,6 +75,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
               </Routes>
+                <SupportChat />
             </Suspense>
           </Router>
         </WishlistContext.Provider>

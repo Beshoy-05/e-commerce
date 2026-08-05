@@ -74,7 +74,7 @@ const Filter = () => {
         type="range"
         className="form-range"
         min="0"
-        max="1000"
+        max="10000"
         step="10"
         value={selectedPrice}
         onChange={(e) => setSelectedPrice(Number(e.target.value))}
