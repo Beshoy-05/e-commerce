@@ -47,6 +47,12 @@ const Navbar = () => {
                 Contact
               </NavLink>
             </li>
+
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/admin">
+                Admin
+              </NavLink>
+            </li>
           </ul>
 
           <div className="navbar-actions d-flex align-items-center gap-3">

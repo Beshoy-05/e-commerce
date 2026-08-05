@@ -23,15 +23,36 @@ const Home = () => {
   const itemsPerPage = 9;
 
   useEffect(() => {
-    setLoading(true);
+    const savedProducts = localStorage.getItem("products");
 
-    filterLogic(search, category, price, currentPage, itemsPerPage).then(
-      (data) => {
-        setProducts(data.products);
-        setTotalProducts(data.totalProducts);
-        setLoading(false);
-      },
-    );
+    if (savedProducts) {
+      const allProducts = JSON.parse(savedProducts);
+
+      const filtered = allProducts.filter(
+        (product) =>
+          product.price <= price &&
+          (category === "all" || product.category === category) &&
+          product.title.toLowerCase().includes(search.toLowerCase()),
+      );
+
+      const start = (currentPage - 1) * itemsPerPage;
+      const end = start + itemsPerPage;
+
+      setProducts(filtered.slice(start, end));
+      setTotalProducts(filtered.length);
+      setLoading(false);
+    } else {
+      setLoading(true);
+
+      filterLogic(search, category, price, currentPage, itemsPerPage).then(
+        (data) => {
+          setProducts(data.products);
+          setTotalProducts(data.totalProducts);
+
+          setLoading(false);
+        },
+      );
+    }
   }, [search, category, price, currentPage]);
 
   function handlePageChange(page) {

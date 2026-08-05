@@ -22,6 +22,7 @@ const ProductDetails = lazy(
 );
 const Login = lazy(() => import("./pages/Login/Login"));
 const Register = lazy(() => import("./pages/Register/Register"));
+const Admin = lazy(() => import("./pages/Admin/Admin"));
 
 function App() {
   const [search, setSearch] = useState("");
@@ -62,7 +63,7 @@ function App() {
         <WishlistContext.Provider value={{ wishlist, setWishlist }}>
           <Router>
             <Suspense fallback={<PagesLoading />}>
-            <Navbar />
+              <Navbar />
 
               <Routes>
                 <Route path="/" element={<Home />} />
@@ -73,6 +74,7 @@ function App() {
                 <Route path="/product/:id" element={<ProductDetails />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/admin" element={<Admin />} />
               </Routes>
             </Suspense>
           </Router>

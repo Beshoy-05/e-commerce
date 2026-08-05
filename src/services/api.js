@@ -23,3 +23,15 @@ export function getProductsByCategory(category) {
 export function getProduct(id) {
   return axios.get(`${BASE_URL}/${id}`);
 }
+
+export function addProduct(product) {
+  return axios.post(`${BASE_URL}/add`, product);
+}
+
+export function updateProduct(id, product) {
+  return axios.put(`${BASE_URL}/${id}`, product);
+}
+
+export function deleteProduct(id) {
+  return axios.delete(`${BASE_URL}/${id}`);
+}
