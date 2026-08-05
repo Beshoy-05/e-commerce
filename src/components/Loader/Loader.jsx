@@ -4,7 +4,7 @@ import "./Loader.css";
 const Loader = () => {
   return (
     <div className="loader">
-      <Spin size="large" tip="Loading..." />
+      <Spin size="large" description="Loading..." />
     </div>
   );
 };

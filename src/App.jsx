@@ -1,22 +1,27 @@
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar/Navbar";
 
-import Home from "./pages/Home/Home";
-import About from "./pages/About/About";
-import Contact from "./pages/Contact/Contact";
-import Cart from "./pages/Cart/Cart";
-import Wishlist from "./pages/Wishlist/Wishlist";
-import ProductDetails from "./pages/ProductDetails/ProductDetails";
-import Login from "./pages/Login/Login";
-import Register from "./pages/Register/Register";
+import PagesLoading from "./components/PageLoading/PagesLoading";
 
 import { SearchContext } from "./context/search";
 import { CartContext } from "./context/CartContext";
 import { WishlistContext } from "./context/WishlistContext";
+import { lazy } from "react";
 
 import "./index.css";
+
+const Home = lazy(() => import("./pages/Home/Home"));
+const About = lazy(() => import("./pages/About/About"));
+const Contact = lazy(() => import("./pages/Contact/Contact"));
+const Cart = lazy(() => import("./pages/Cart/Cart"));
+const Wishlist = lazy(() => import("./pages/Wishlist/Wishlist"));
+const ProductDetails = lazy(
+  () => import("./pages/ProductDetails/ProductDetails"),
+);
+const Login = lazy(() => import("./pages/Login/Login"));
+const Register = lazy(() => import("./pages/Register/Register"));
 
 function App() {
   const [search, setSearch] = useState("");
@@ -32,8 +37,6 @@ function App() {
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
-
-
 
   const [wishlist, setWishlist] = useState(() => {
     const savedWishlist = localStorage.getItem("wishlist");
@@ -58,18 +61,20 @@ function App() {
       <CartContext.Provider value={{ cart, setCart }}>
         <WishlistContext.Provider value={{ wishlist, setWishlist }}>
           <Router>
+            <Suspense fallback={<PagesLoading />}>
             <Navbar />
 
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/cart" element={<Cart />} />
-              <Route path="/wishlist" element={<Wishlist />} />
-              <Route path="/product/:id" element={<ProductDetails />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-            </Routes>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/wishlist" element={<Wishlist />} />
+                <Route path="/product/:id" element={<ProductDetails />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+              </Routes>
+            </Suspense>
           </Router>
         </WishlistContext.Provider>
       </CartContext.Provider>
