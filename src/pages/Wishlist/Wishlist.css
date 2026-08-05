@@ -1,0 +1,46 @@
+.wishlist-page {
+  min-height: 100vh;
+  background: #fcfbf8;
+  padding: 70px 0;
+}
+
+.wishlist-title {
+  font-size: 58px;
+  font-weight: 700;
+  color: #22213d;
+  margin-bottom: 8px;
+}
+
+.wishlist-subtitle {
+  color: #909090;
+  font-size: 16px;
+}
+
+.wishlist-card:hover {
+  transition: 0.3s;
+  transform: scale(1.03);
+}
+
+.wishlist-card-title {
+  color: #22213d;
+}
+
+.wishlist-card-title:hover {
+  color: #8b5e3c;
+}
+
+.wishlist-desc {
+  color: #909090;
+}
+
+.wishlist-remove {
+  background-color: #2b2521;
+}
+
+.wishlist-remove:hover {
+  background-color: #8b5e3c;
+}
+
+.wishlist-price {
+  color: #8b5e3c;
+}

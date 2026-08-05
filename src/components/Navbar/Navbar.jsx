@@ -52,14 +52,18 @@ const Navbar = () => {
           <div className="navbar-actions d-flex align-items-center gap-3">
             <SearchBar setSearch={setSearch} />
 
-            <Link to="/register" className="text-dark text-decoration-none">
+            <Link to="/login" className="text-dark text-decoration-none">
               <i className="bi bi-person fs-5"></i>
+            </Link>
+
+            <Link to="/wishlist" className="text-dark text-decoration-none">
+              <i className="bi bi-heart"></i>
             </Link>
 
             <Link to="/cart" className="cart-icon position-relative text-dark">
               <i className="bi bi-bag fs-5"></i>
 
-              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
+              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark d-flex justify-content-center align-items-center">
                 {cart.length}
               </span>
             </Link>

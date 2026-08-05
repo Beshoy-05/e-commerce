@@ -78,6 +78,7 @@
 .pagination .btn-dark{
     background:#6b4f3b !important;
     border-color:#6b4f3b;
+    color: white;
 }
 
 /* Loader */
