@@ -5,10 +5,12 @@ import Loader from "../../components/Loader/Loader";
 import Footer from "../../components/Footer/Footer";
 import "./ProductDetails.css";
 import { CartContext } from "../../context/CartContext";
+import { WishlistContext } from "../../context/WishlistContext";
 
 const ProductDetails = () => {
   const { id } = useParams();
   const { cart, setCart } = useContext(CartContext);
+  const { wishlist, setWishlist } = useContext(WishlistContext);
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -48,10 +50,20 @@ const ProductDetails = () => {
   }
 }
 
-  
+
 
   if (loading) {
     return <Loader />;
+  }
+
+  const isWishlisted = wishlist.some((item) => item.id === product.id);
+
+  function toggleWishlist(product) {
+    if (isWishlisted) {
+      setWishlist(wishlist.filter((item) => item.id !== product.id));
+    } else {
+      setWishlist([...wishlist, product]);
+    }
   }
 
   return (
@@ -109,9 +121,24 @@ const ProductDetails = () => {
                 </p>
               </div>
 
-              <button onClick={() => addToCart(product)} className="btn btn-dark rounded-pill px-5 py-3 mt-4">
-                Add To Cart
-              </button>
+              <div className="d-flex align-items-center gap-3 mt-4">
+                <button
+                  onClick={() => addToCart(product)}
+                  className="btn btn-dark rounded-pill px-5 py-3"
+                >
+                  Add To Cart
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => toggleWishlist(product)}
+                  className={`wishlist-btn-2 btn rounded-circle d-flex justify-content-center align-items-center ${isWishlisted ? "wish-active" : ""}`}
+                >
+                  <i
+                    className={`bi ${isWishlisted ? "bi-heart-fill" : "bi-heart"}`}
+                  ></i>
+                </button>
+              </div>
             </div>
           </div>
         </div>

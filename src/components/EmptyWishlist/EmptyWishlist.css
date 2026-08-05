@@ -1,0 +1,12 @@
+.empty-wishlist {
+  min-height: 500px;
+}
+
+.empty-wishlist h2 {
+  font-size: 28px;
+  color: #22213d;
+}
+
+.empty-wishlist p {
+  color: #909090;
+}
