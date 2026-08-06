@@ -1,4 +1,4 @@
-import "./AboutValues.css";
+import "./HomeValues.css";
 
 const values = [
   {
@@ -23,56 +23,36 @@ const values = [
   },
 ];
 
-const AboutValues = () => {
+const HomeValues = () => {
   return (
     <section className="py-5 bg-light">
-
       <div className="container">
-
         <div className="text-center mb-5">
-
           <small className="text-uppercase text-secondary fw-semibold">
             Why Choose Us
           </small>
 
-          <h2 className="display-5 fw-bold mt-2">
-            What Makes Us Different
-          </h2>
-
+          <h2 className="display-5 fw-bold mt-2">What Makes Us Different</h2>
         </div>
 
         <div className="row g-4">
-
           {values.map((value, index) => (
             <div className="col-md-6 col-lg-3" key={index}>
-
               <div className="card h-100 border-0 shadow-sm rounded-4 p-4 value-card">
-
                 <div className="icon-box mb-4">
-
                   <i className={`bi ${value.icon}`}></i>
-
                 </div>
 
-                <h5 className="fw-bold">
-                  {value.title}
-                </h5>
+                <h5 className="fw-bold">{value.title}</h5>
 
-                <p className="text-secondary mb-0">
-                  {value.text}
-                </p>
-
+                <p className="text-secondary mb-0">{value.text}</p>
               </div>
-
             </div>
           ))}
-
         </div>
-
       </div>
-
     </section>
   );
 };
 
-export default AboutValues;
+export default HomeValues;

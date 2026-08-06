@@ -1,14 +1,11 @@
-import "./AboutCTA.css";
+import "./HomeCTA.css";
 import { Link } from "react-router-dom";
 
-const AboutCTA = () => {
+const HomeCTA = () => {
   return (
     <section className="py-5">
-
       <div className="container">
-
         <div className="cta-box text-center rounded-5 p-5">
-
           <small className="text-uppercase text-secondary fw-semibold">
             Ready To Shop?
           </small>
@@ -20,17 +17,13 @@ const AboutCTA = () => {
           </h2>
 
           <p className="text-secondary mx-auto w-75">
-            Browse our carefully selected collection and find products
-            that match your lifestyle. Quality, affordability, and
-            convenience—all in one place.
+            Browse our carefully selected collection and find products that
+            match your lifestyle. Quality, affordability, and convenience—all in
+            one place.
           </p>
 
           <div className="mt-4 d-flex justify-content-center gap-3 flex-wrap">
-
-            <Link
-              to="/"
-              className="btn btn-dark rounded-pill px-4 py-3"
-            >
+            <Link to="/shop" className="btn btn-dark rounded-pill px-4 py-3">
               Shop Now
             </Link>
 
@@ -40,14 +33,11 @@ const AboutCTA = () => {
             >
               Contact Us
             </Link>
-
           </div>
-
         </div>
-
       </div>
     </section>
   );
 };
 
-export default AboutCTA;
+export default HomeCTA;

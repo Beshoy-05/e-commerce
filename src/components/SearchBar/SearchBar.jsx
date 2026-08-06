@@ -7,7 +7,7 @@ const SearchBar = ({ setSearch }) => {
   const navigate = useNavigate();
   function handleSearch() {
     setSearch(text.trim());
-    navigate("/");
+    navigate("/shop");
   }
 
   return (

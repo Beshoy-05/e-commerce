@@ -13,8 +13,8 @@ import { lazy } from "react";
 
 import "./index.css";
 
+const Shop = lazy(() => import("./pages/Shop/Shop"));
 const Home = lazy(() => import("./pages/Home/Home"));
-const About = lazy(() => import("./pages/About/About"));
 const Contact = lazy(() => import("./pages/Contact/Contact"));
 const Cart = lazy(() => import("./pages/Cart/Cart"));
 const Wishlist = lazy(() => import("./pages/Wishlist/Wishlist"));
@@ -63,11 +63,11 @@ function App() {
         <WishlistContext.Provider value={{ wishlist, setWishlist }}>
           <Router>
             <Suspense fallback={<PagesLoading />}>
-            <Navbar />
+              <Navbar />
 
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
+                <Route path="/shop" element={<Shop />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/wishlist" element={<Wishlist />} />
@@ -75,7 +75,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
               </Routes>
-                <SupportChat />
+              <SupportChat />
             </Suspense>
           </Router>
         </WishlistContext.Provider>

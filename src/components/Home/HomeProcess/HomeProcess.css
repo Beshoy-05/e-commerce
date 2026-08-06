@@ -1,0 +1,22 @@
+.process-circle {
+  width: 80px;
+  height: 80px;
+
+  border-radius: 50%;
+
+  background: #212529;
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 24px;
+  font-weight: bold;
+
+  transition: 0.3s;
+}
+
+.process-circle:hover {
+  transform: scale(1.08);
+}
