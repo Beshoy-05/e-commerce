@@ -2,11 +2,6 @@ nav
 {
     background-color: #fafaf9;
 }
-.logo-text{
-    font-size:32px;
-    letter-spacing:8px;
-    font-weight:bold;
-}
 
 .navbar-actions{
     display:flex;

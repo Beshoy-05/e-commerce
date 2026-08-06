@@ -53,3 +53,8 @@ body {
   border-color: #333;
 }
 
+.logo-text{
+    font-size:32px;
+    letter-spacing:8px;
+    font-weight:bold;
+}

@@ -1,15 +1,17 @@
-import { Suspense, useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Suspense, useEffect, useState, lazy } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 
 import Navbar from "./components/Navbar/Navbar";
-
 import PagesLoading from "./components/PageLoading/PagesLoading";
-import SupportChat from "./components/SupportChat/SupportChat";
 
 import { SearchContext } from "./context/search";
 import { CartContext } from "./context/CartContext";
 import { WishlistContext } from "./context/WishlistContext";
-import { lazy } from "react";
 
 import "./index.css";
 
@@ -23,6 +25,29 @@ const ProductDetails = lazy(
 );
 const Login = lazy(() => import("./pages/Login/Login"));
 const Register = lazy(() => import("./pages/Register/Register"));
+const Admin = lazy(() => import("./pages/Admin/Admin"));
+
+function AppContent() {
+  const location = useLocation();
+
+  return (
+    <>
+      {!location.pathname.startsWith("/admin") && <Navbar />}
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/product/:id" element={<ProductDetails />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/admin" element={<Admin />} />
+      </Routes>
+    </>
+  );
+}
 
 function App() {
   const [search, setSearch] = useState("");
@@ -63,19 +88,7 @@ function App() {
         <WishlistContext.Provider value={{ wishlist, setWishlist }}>
           <Router>
             <Suspense fallback={<PagesLoading />}>
-            <Navbar />
-
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/cart" element={<Cart />} />
-                <Route path="/wishlist" element={<Wishlist />} />
-                <Route path="/product/:id" element={<ProductDetails />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-              </Routes>
-                <SupportChat />
+              <AppContent />
             </Suspense>
           </Router>
         </WishlistContext.Provider>

@@ -1,0 +1,280 @@
+.product-table-wrapper {
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid #eee2d8;
+  overflow: hidden;
+}
+
+.table-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 25px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f7f4f0;
+  border: 1px solid #eee2d8;
+  border-radius: 10px;
+  padding: 10px 16px;
+  width: 340px;
+  max-width: 100%;
+}
+
+.search-box i {
+  color: #999;
+}
+
+.search-box input {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  color: #2b2521;
+}
+
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-outline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid #eee2d8;
+  padding: 9px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #2b2521;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-outline:hover {
+  background: #f7f4f0;
+}
+
+.divider {
+  width: 1px;
+  height: 20px;
+  background: #e5ded5;
+}
+
+.btn-clear {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: #8b5e3c;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.product-table thead {
+  background: #f7f4f0;
+}
+
+.product-table th {
+  text-align: left;
+  padding: 14px 25px;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  color: #9a9089;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.product-table th.text-end {
+  text-align: right;
+}
+
+.product-table td {
+  padding: 16px 25px;
+  border-top: 1px solid #f1ece6;
+  vertical-align: middle;
+}
+
+.product-cell {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.product-thumb {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background: #f0ebe4;
+  object-fit: contain;
+  padding: 4px;
+  flex-shrink: 0;
+}
+
+.product-name {
+  font-weight: 600;
+  color: #2b2521;
+  font-size: 14.5px;
+}
+
+.product-sku {
+  font-size: 12.5px;
+  color: #a39c94;
+  margin-top: 2px;
+}
+
+.product-table th:nth-child(4),
+.product-table td:nth-child(4) {
+  width: 180px;
+}
+
+.product-table th:nth-child(5),
+.product-table td:nth-child(5) {
+  width: 120px;
+  text-align: center;
+}
+
+.category-cell {
+  color: #8b5e3c;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.price-cell {
+  font-weight: 600;
+  color: #2b2521;
+  font-size: 14px;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.status-in-stock {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+.status-in-stock .status-dot {
+  background: #2e7d32;
+}
+
+.status-low-stock {
+  background: #fff3e0;
+  color: #e08e00;
+}
+.status-low-stock .status-dot {
+  background: #e08e00;
+}
+
+.status-out-of-stock {
+  background: #f0ebe4;
+  color: #8a8178;
+}
+.status-out-of-stock .status-dot {
+  background: #8a8178;
+}
+
+.actions-cell {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.icon-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: #6b6259;
+  cursor: pointer;
+  margin-left: 4px;
+}
+
+.icon-btn:hover {
+  background: #f0ebe4;
+}
+
+.icon-btn-danger:hover {
+  background: #fdecea;
+  color: #c0392b;
+}
+
+.table-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 25px;
+  border-top: 1px solid #f1ece6;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.entries-info {
+  color: #9a9089;
+  font-size: 13.5px;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.page-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #eee2d8;
+  background: #fff;
+  color: #2b2521;
+  font-size: 13.5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-btn:hover:not(:disabled) {
+  background: #f7f4f0;
+}
+
+.page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.page-btn.active {
+  background: #2b2521;
+  color: #fff;
+  border-color: #2b2521;
+}

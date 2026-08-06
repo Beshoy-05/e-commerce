@@ -1,0 +1,40 @@
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #faf8f5;
+}
+
+.admin-content {
+  flex: 1;
+  padding: 45px;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.admin-header h1 {
+  font-size: 42px;
+  font-weight: 700;
+  color: #2b2521;
+}
+
+.admin-header p {
+  color: #777;
+  margin-top: 10px;
+}
+
+.admin-header .btn {
+  background: #2b2521;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.admin-header .btn:hover {
+  background: #8b5e3c;
+}
