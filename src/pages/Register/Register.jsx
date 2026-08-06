@@ -1,78 +1,69 @@
  import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+
+import AuthInput from "../../components/AuthInput/AuthInput";
+import { validateRegister } from "../../utils/registerValidation";
+
 import "./Register.css";
 
 const Register = () => {
   const navigate = useNavigate();
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
 
-  const [error, setError] = useState("");
+  const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState("");
 
-  const handleRegister = (e) => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  function handleChange({ target }) {
+    setForm((prev) => ({
+      ...prev,
+      [target.name]: target.value,
+    }));
+  }
+
+  function handleRegister(e) {
     e.preventDefault();
 
-    setError("");
-    setSuccess("");
+    const newErrors = validateRegister(form);
 
-    if (!name || !email || !password || !confirmPassword) {
-      setError("Please fill all fields.");
+    if (Object.keys(newErrors).length) {
+      setErrors(newErrors);
       return;
     }
 
-    if (!email.includes("@")) {
-      setError("Please enter a valid email.");
-      return;
-    }
+    setErrors({});
 
-    if (password.length < 6) {
-      setError("Password must be at least 6 characters.");
-      return;
-    }
+    localStorage.setItem(
+      "user",
+      JSON.stringify({
+        name: form.name,
+        email: form.email,
+        password: form.password,
+      })
+    );
 
-    if (password !== confirmPassword) {
-      setError("Passwords do not match.");
-      return;
-    }
-
-    // Check if email already exists
-    const existingUser = JSON.parse(localStorage.getItem("user"));
-
-    if (existingUser && existingUser.email === email) {
-      setError("Email already exists. Please login.");
-      return;
-    }
-
-    const user = {
-      name,
-      email,
-      password,
-    };
-
-    localStorage.setItem("user", JSON.stringify(user));
-
-    setSuccess("Registration successful!");
+    setSuccess("Registration Successful!");
 
     setTimeout(() => {
       navigate("/login");
     }, 1500);
-  };
+  }
 
   return (
     <div className="register-container">
       <div className="register-card">
+
         <h2>Create Account</h2>
 
         <form onSubmit={handleRegister}>
-          {error && (
-            <div className="alert alert-danger">
-              {error}
-            </div>
-          )}
 
           {success && (
             <div className="alert alert-success">
@@ -80,49 +71,51 @@ const Register = () => {
             </div>
           )}
 
-          <div className="form-group">
-            <label>Full Name</label>
+          <AuthInput
+            label="Full Name"
+            type="text"
+            name="name"
+            placeholder="Enter your name"
+            value={form.name}
+            onChange={handleChange}
+            error={errors.name}
+          />
 
-            <input
-              type="text"
-              placeholder="Enter your name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </div>
+          <AuthInput
+            label="Email"
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+            value={form.email}
+            onChange={handleChange}
+            error={errors.email}
+          />
 
-          <div className="form-group">
-            <label>Email</label>
+          <AuthInput
+            label="Password"
+            type="password"
+            name="password"
+            placeholder="Enter your password"
+            value={form.password}
+            onChange={handleChange}
+            error={errors.password}
+            showPassword={showPassword}
+            togglePassword={() => setShowPassword(!showPassword)}
+          />
 
-            <input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-
-          <div className="form-group">
-            <label>Password</label>
-
-            <input
-              type="password"
-              placeholder="Enter your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-
-          <div className="form-group">
-            <label>Confirm Password</label>
-
-            <input
-              type="password"
-              placeholder="Confirm your password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-          </div>
+          <AuthInput
+            label="Confirm Password"
+            type="password"
+            name="confirmPassword"
+            placeholder="Confirm your password"
+            value={form.confirmPassword}
+            onChange={handleChange}
+            error={errors.confirmPassword}
+            showPassword={showConfirmPassword}
+            togglePassword={() =>
+              setShowConfirmPassword(!showConfirmPassword)
+            }
+          />
 
           <button className="register-btn">
             Register
@@ -132,7 +125,9 @@ const Register = () => {
             Already have an account?
             <Link to="/login"> Login</Link>
           </p>
+
         </form>
+
       </div>
     </div>
   );

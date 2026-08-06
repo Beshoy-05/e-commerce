@@ -1,49 +1,73 @@
  import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+
+import AuthInput from "../../components/AuthInput/AuthInput";
+import { validateLogin } from "../../utils/loginValidation";
+
 import "./Login.css";
 
 const Login = () => {
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+  });
 
-  const [error, setError] = useState("");
+  const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState("");
 
-  const handleLogin = (e) => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  function handleChange({ target }) {
+    setForm((prev) => ({
+      ...prev,
+      [target.name]: target.value,
+    }));
+  }
+
+  function handleLogin(e) {
     e.preventDefault();
 
-    setError("");
-    setSuccess("");
+    const newErrors = validateLogin(form);
+
+    if (Object.keys(newErrors).length) {
+      setErrors(newErrors);
+      setSuccess("");
+      return;
+    }
 
     const savedUser = JSON.parse(localStorage.getItem("user"));
 
     if (!savedUser) {
-      setError("No account found. Please register first.");
-      return;
-    }
-
-    if (!email || !password) {
-      setError("Please fill all fields.");
+      setErrors({
+        email: "No account found. Please register first.",
+      });
       return;
     }
 
     if (
-      email === savedUser.email &&
-      password === savedUser.password
+      form.email === savedUser.email &&
+      form.password === savedUser.password
     ) {
       localStorage.setItem("isLoggedIn", "true");
 
+      setErrors({});
       setSuccess("Login Successful!");
 
       setTimeout(() => {
         navigate("/");
       }, 1500);
-    } else {
-      setError("Invalid email or password.");
+
+      return;
     }
-  };
+
+    setErrors({
+      password: "Invalid email or password.",
+    });
+
+    setSuccess("");
+  }
 
   return (
     <div className="login-container">
@@ -53,39 +77,33 @@ const Login = () => {
 
         <form onSubmit={handleLogin}>
 
-          {error && (
-            <div className="alert alert-danger">
-              {error}
-            </div>
-          )}
-
           {success && (
             <div className="alert alert-success">
               {success}
             </div>
           )}
 
-          <div className="form-group">
-            <label>Email</label>
+          <AuthInput
+            label="Email"
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+            value={form.email}
+            onChange={handleChange}
+            error={errors.email}
+          />
 
-            <input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-
-          <div className="form-group">
-            <label>Password</label>
-
-            <input
-              type="password"
-              placeholder="Enter your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
+          <AuthInput
+            label="Password"
+            type="password"
+            name="password"
+            placeholder="Enter your password"
+            value={form.password}
+            onChange={handleChange}
+            error={errors.password}
+            showPassword={showPassword}
+            togglePassword={() => setShowPassword(!showPassword)}
+          />
 
           <button className="login-btn">
             Login
