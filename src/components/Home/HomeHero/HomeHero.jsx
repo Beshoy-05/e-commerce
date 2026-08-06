@@ -1,10 +1,10 @@
-import "./AboutHero.css";
+import "./HomeHero.css";
 import { Link } from "react-router-dom";
 import hero from "../../../assets/hero.jpg";
 
-const AboutHero = () => {
+const HomeHero = () => {
   return (
-    <section className="about-hero" style={{ backgroundImage: `url(${hero})` }}>
+    <section className="home-hero" style={{ backgroundImage: `url(${hero})` }}>
       <div className="hero-overlay">
         <div className="container h-100 d-flex align-items-center">
           <div className="hero-content">
@@ -23,7 +23,7 @@ const AboutHero = () => {
               quality, style, and value to your everyday life.
             </p>
             <Link
-              to="/"
+              to="/shop"
               className="btn btn-light rounded-pill px-4 py-3 mt-3 fw-semibold"
             >
               Shop Now
@@ -35,4 +35,4 @@ const AboutHero = () => {
   );
 };
 
-export default AboutHero;
+export default HomeHero;

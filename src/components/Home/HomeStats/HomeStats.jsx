@@ -1,4 +1,4 @@
-import "./AboutStats.css";
+import "./HomeStats.css";
 
 const stats = [
   {
@@ -19,33 +19,22 @@ const stats = [
   },
 ];
 
-const AboutStats = () => {
+const HomeStats = () => {
   return (
     <section className="stats-section py-5">
-
       <div className="container">
-
         <div className="row text-center">
-
           {stats.map((item, index) => (
             <div className="col-6 col-lg-3 mb-4 mb-lg-0" key={index}>
+              <h2 className="display-4 fw-bold text-white">{item.number}</h2>
 
-              <h2 className="display-4 fw-bold text-white">
-                {item.number}
-              </h2>
-
-              <p className="text-light mb-0">
-                {item.title}
-              </p>
-
+              <p className="text-light mb-0">{item.title}</p>
             </div>
           ))}
-
         </div>
-
       </div>
     </section>
   );
 };
 
-export default AboutStats;
+export default HomeStats;

@@ -68,7 +68,6 @@ const ProductDetails = () => {
 
   return (
     <>
-
       <div className="product-details-page py-5">
         <div className="container">
           <div className="row g-5 align-items-center">
@@ -121,12 +120,9 @@ const ProductDetails = () => {
                   <strong>Discount:</strong> {product.discountPercentage}%
                 </p>
               </div>
-{success && (
-  <p className="text-success fw-bold mt-3">
-    {success}
-  </p>
-)}
-
+              {success && (
+                <p className="text-success fw-bold mt-3">{success}</p>
+              )}
 
               <div className="d-flex align-items-center gap-3 mt-4">
                 <button

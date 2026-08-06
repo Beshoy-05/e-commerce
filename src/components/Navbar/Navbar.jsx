@@ -37,8 +37,8 @@ const Navbar = () => {
             </li>
 
             <li className="nav-item">
-              <NavLink className="nav-link" to="/about">
-                About
+              <NavLink className="nav-link" to="/shop">
+                Shop
               </NavLink>
             </li>
 
@@ -52,12 +52,14 @@ const Navbar = () => {
           <div className="navbar-actions d-flex align-items-center gap-3">
             <SearchBar setSearch={setSearch} />
 
+            <i class="bi bi-search fs-5 text-dark"></i>
+
             <Link to="/login" className="text-dark text-decoration-none">
-              <i className="bi bi-person fs-5"></i>
+              <i className="bi bi-person fs-4"></i>
             </Link>
 
             <Link to="/wishlist" className="text-dark text-decoration-none">
-              <i className="bi bi-heart"></i>
+              <i className="bi bi-heart fs-5"></i>
             </Link>
 
             <Link to="/cart" className="cart-icon position-relative text-dark">
