@@ -38,3 +38,25 @@
   color: #e63946;
   border-color: rgba(230, 57, 70, 1);
 }
+
+.product-quantity {
+  border: 1px solid #e2ddd6;
+  height: 60px;
+}
+
+.product-quantity button {
+  width: 68px;
+  height: 100%;
+  color: #444;
+  font-size: 27px;
+  transition: 0.3s;
+}
+
+.product-quantity button:hover {
+  background: #212529; 
+  color: #fff;
+}
+
+.product-quantity span {
+  width: 50px;
+}

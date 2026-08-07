@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 import { SearchContext } from "../../context/search";
@@ -11,6 +11,7 @@ import "./Navbar.css";
 const Navbar = () => {
   const { setSearch } = useContext(SearchContext);
   const { cart } = useContext(CartContext);
+  const [isSearch, setIsSearch] = useState(false);
 
   return (
     <nav className="navbar navbar-expand-lg shadow-sm sticky-top">
@@ -50,9 +51,14 @@ const Navbar = () => {
           </ul>
 
           <div className="navbar-actions d-flex align-items-center gap-3">
-            <SearchBar setSearch={setSearch} />
+            <div className={`search-bar-wrapper ${isSearch ? "open" : ""}`}>
+              <SearchBar setSearch={setSearch} />
+            </div>
 
-            <i class="bi bi-search fs-5 text-dark"></i>
+            <i
+              className={`bi ${isSearch ? "bi-x-circle" : "bi-search"} fs-4 text-dark`}
+              onClick={() => setIsSearch(!isSearch)}
+            ></i>
 
             <Link to="/login" className="text-dark text-decoration-none">
               <i className="bi bi-person fs-4"></i>

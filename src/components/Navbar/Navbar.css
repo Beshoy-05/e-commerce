@@ -56,3 +56,15 @@ nav
     }
 
 }
+
+.search-bar-wrapper {
+  overflow: hidden;
+  max-width: 0;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.search-bar-wrapper.open {
+  max-width: 300px;
+  opacity: 1;
+}

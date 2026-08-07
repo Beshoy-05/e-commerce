@@ -82,7 +82,7 @@ function SupportChat() {
         className="chat-button shadow"
         onClick={() => setOpen(!open)}
       >
-        <i className="bi bi-chat-dots-fill fs-4"></i>
+        <i className={`bi ${open ? "bi-x-circle-fill" : "bi-chat-dots-fill"} fs-4`}></i>
       </button>
 
       {open && (

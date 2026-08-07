@@ -33,18 +33,18 @@
     color:#555;
 }
 
-.form-control{
+.contact-card .form-control{
     border-radius:10px;
     padding:14px;
     border:1px solid #ddd;
     box-shadow:none !important;
 }
 
-.form-control:focus{
+.contact-card .form-control:focus{
     border-color:#3d3027;
 }
 
-.send-btn{
+.contact-card .send-btn{
     background:#2f2925;
     color:white;
     border:none;
@@ -53,6 +53,6 @@
     transition:.3s;
 }
 
-.send-btn:hover{
+.contact-card .send-btn:hover{
     background:#574539;
 }

@@ -1,4 +1,3 @@
-import { Empty } from "antd";
 import { Link } from "react-router-dom";
 import { ShoppingBag } from "lucide-react";
 import "./EmptyCart.css";
@@ -18,7 +17,7 @@ const EmptyCart = () => {
           Start exploring our latest collections.
         </p>
 
-        <Link to="/">
+        <Link to="/shop">
           <button>
             Continue Shopping
           </button>
