@@ -84,10 +84,11 @@ const ProductDetails = () => {
   function toggleWishlist(product) {
     if (isWishlisted) {
       setWishlist(wishlist.filter((item) => item.id !== product.id));
-      toast.success("Successfully added to cart!")
+      toast.error("Item removed from wishlist!")
     } else {
       setWishlist([...wishlist, product]);
-      toast.error("Item removed from wishlist!")
+      toast.success("Successfully added to wishlist!")
+      
     }
   }
 

@@ -29,7 +29,7 @@ function App() {
   const [search, setSearch] = useState("");
 
   const [category, setCategory] = useState("all");
-  const [price, setPrice] = useState(1000);
+  const [price, setPrice] = useState(10000);
 
   const [cart, setCart] = useState(() => {
     const savedCart = localStorage.getItem("cart");

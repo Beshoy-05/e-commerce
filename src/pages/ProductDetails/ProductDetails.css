@@ -53,7 +53,7 @@
 }
 
 .product-quantity button:hover {
-  background: #212529; 
+  background-color: #bf5c00  !important;
   color: #fff;
 }
 

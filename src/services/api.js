@@ -2,14 +2,12 @@ import axios from "axios";
 
 const BASE_URL = "https://dummyjson.com/products";
 
-export function getProducts(limit, skip) {
-  return axios.get(`${BASE_URL}?limit=${limit}&skip=${skip}`);
+export function getProducts(limit = 0) {
+  return axios.get(`${BASE_URL}?limit=${limit}`);
 }
 
-export function searchProducts(search, limit, skip) {
-  return axios.get(
-    `${BASE_URL}/search?q=${search}&limit=${limit}&skip=${skip}`
-  );
+export function searchProducts(search) {
+  return axios.get(`${BASE_URL}/search?q=${search}`);
 }
 
 export function getCategories() {
