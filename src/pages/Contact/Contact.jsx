@@ -95,7 +95,7 @@ const Contact = () => {
                   required
                 ></textarea>
 
-                <button className="send-btn mt-4">Send Message</button>
+                <button className="send-btn w-100 mt-4">Send Message</button>
               </form>
             </div>
           </div>

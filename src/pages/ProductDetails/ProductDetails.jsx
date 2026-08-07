@@ -6,6 +6,7 @@ import Footer from "../../components/Footer/Footer";
 import "./ProductDetails.css";
 import { CartContext } from "../../context/CartContext";
 import { WishlistContext } from "../../context/WishlistContext";
+import toast from "react-hot-toast";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -13,7 +14,6 @@ const ProductDetails = () => {
   const { wishlist, setWishlist } = useContext(WishlistContext);
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [success, setSuccess] = useState("");
 
   useEffect(() => {
     getProduct(id).then((res) => {
@@ -22,10 +22,15 @@ const ProductDetails = () => {
     });
   }, [id]);
 
-  function addToCart(product) {
-    const existingItem = cart.find((item) => item.id === product.id);
+  if (loading) {
+    return <Loader />;
+  }
 
-    if (!existingItem) {
+  const itemInCart = cart.find((item) => item.id === product?.id);
+  const isWishlisted = wishlist.some((item) => item.id === product.id);
+
+  function addToCart(product) {
+    if (!itemInCart) {
       setCart([
         ...cart,
         {
@@ -47,22 +52,42 @@ const ProductDetails = () => {
 
       setCart(newCart);
     }
-    setSuccess("Item added to cart successfully!");
+    toast.success('Successfully added to cart!')
   }
 
-  if (loading) {
-    return <Loader />;
+  function increase() {
+    setCart(
+      cart.map((item) =>
+        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item,
+      ),
+    );
   }
 
-  const isWishlisted = wishlist.some((item) => item.id === product.id);
+  function decrease() {
+    if (itemInCart.quantity === 1) {
+      setCart(cart.filter((item) => item.id !== product.id));
+      toast.error("Item removed from cart!")
+    } else {
+      setCart(
+        cart.map((item) =>
+          item.id === product.id ?
+            {
+              ...item,
+              quantity: item.quantity > 1 ? item.quantity - 1 : 1,
+            }
+          : item,
+        ),
+      );
+    }
+  }
 
   function toggleWishlist(product) {
     if (isWishlisted) {
       setWishlist(wishlist.filter((item) => item.id !== product.id));
-      setSuccess("Item removed from wishlist successfully!");
+      toast.success("Successfully added to cart!")
     } else {
       setWishlist([...wishlist, product]);
-      setSuccess("Item added to wishlist successfully!");
+      toast.error("Item removed from wishlist!")
     }
   }
 
@@ -120,17 +145,21 @@ const ProductDetails = () => {
                   <strong>Discount:</strong> {product.discountPercentage}%
                 </p>
               </div>
-              {success && (
-                <p className="text-success fw-bold mt-3">{success}</p>
-              )}
 
               <div className="d-flex align-items-center gap-3 mt-4">
-                <button
-                  onClick={() => addToCart(product)}
-                  className="btn btn-dark rounded-pill px-5 py-3"
-                >
-                  Add To Cart
-                </button>
+                {itemInCart ?
+                  <div className="product-quantity d-flex align-items-center rounded-pill overflow-hidden">
+                    <button className="border-0 bg-transparent" onClick={decrease}>-</button>
+                    <span className="text-dark fw-bold text-center">{itemInCart.quantity}</span>
+                    <button className="border-0 bg-transparent" onClick={increase}>+</button>
+                  </div>
+                : <button
+                    onClick={() => addToCart(product)}
+                    className="btn btn-dark rounded-pill px-5 py-3"
+                  >
+                    Add To Cart
+                  </button>
+                }
 
                 <button
                   type="button"

@@ -12,6 +12,7 @@ import { WishlistContext } from "./context/WishlistContext";
 import { lazy } from "react";
 
 import "./index.css";
+import { Toaster } from "react-hot-toast";
 
 const Shop = lazy(() => import("./pages/Shop/Shop"));
 const Home = lazy(() => import("./pages/Home/Home"));
@@ -63,6 +64,7 @@ function App() {
         <WishlistContext.Provider value={{ wishlist, setWishlist }}>
           <Router>
             <Suspense fallback={<PagesLoading />}>
+            <Toaster position="top-right"/>
               <Navbar />
 
               <Routes>

@@ -24,7 +24,7 @@
 .chat-window {
   position: fixed;
   right: 25px;
-  bottom: 100px;
+  bottom: 105px;
   width: 380px;
   max-width: calc(100vw - 30px);
   height: 620px;
@@ -168,7 +168,7 @@
   border-color: #8b5cf6;
 }
 
-.send-btn {
+.chat-footer .send-btn {
   width: 48px;
   height: 48px;
   border: none;
@@ -181,11 +181,11 @@
   transition: .25s;
 }
 
-.send-btn i {
+.chat-footer .send-btn i {
   font-size: 18px;
 }
 
-.send-btn:hover {
+.chat-footer .send-btn:hover {
   transform: scale(1.08);
   box-shadow: 0 8px 18px rgba(111, 66, 193, .35);
 }

@@ -33,12 +33,23 @@
   color: #909090;
 }
 
-.wishlist-remove {
-  background-color: #2b2521;
+.item-actions:focus{
+  box-shadow: none;
+  border: none;
+}
+.item-actions:hover{
+  transition: 0.3s;
+  transform: scale(1.22);
 }
 
-.wishlist-remove:hover {
-  background-color: #8b5e3c;
+.wishlist-remove i:hover {
+  transition: 0.3s;
+  color: rgba(230, 57, 70, 1);
+}
+
+.cart-add i:hover{
+  transition: 0.3s;
+  color: rgb(151, 255, 142);
 }
 
 .wishlist-price {
