@@ -22,6 +22,8 @@ const Wishlist = lazy(() => import("./pages/Wishlist/Wishlist"));
 const ProductDetails = lazy(
   () => import("./pages/ProductDetails/ProductDetails"),
 );
+const Checkout = lazy(() => import("./pages/Checkout/Checkout"));
+const ThankYou = lazy(() => import("./pages/Checkout/ThankYou"));
 const Login = lazy(() => import("./pages/Login/Login"));
 const Register = lazy(() => import("./pages/Register/Register"));
 
@@ -64,7 +66,7 @@ function App() {
         <WishlistContext.Provider value={{ wishlist, setWishlist }}>
           <Router>
             <Suspense fallback={<PagesLoading />}>
-            <Toaster position="top-right"/>
+              <Toaster position="top-right" />
               <Navbar />
 
               <Routes>
@@ -72,6 +74,8 @@ function App() {
                 <Route path="/shop" element={<Shop />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/cart" element={<Cart />} />
+                <Route path="/checkout" element={<Checkout />} />
+                <Route path="/thank-you" element={<ThankYou />} />
                 <Route path="/wishlist" element={<Wishlist />} />
                 <Route path="/product/:id" element={<ProductDetails />} />
                 <Route path="/login" element={<Login />} />

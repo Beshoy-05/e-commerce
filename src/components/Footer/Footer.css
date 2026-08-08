@@ -1,6 +1,5 @@
-footer
-{
-  background-color: #f5f5f4;
+footer {
+  background-color: var(--surface-alt);
 }
 .tracking-widest {
   letter-spacing: 0.2em;
@@ -9,11 +8,11 @@ footer
   font-family: 'Playfair Display', serif;
 }
 .custom-hover:hover {
-  color: #000 !important;
+  color: var(--black) !important;
   text-decoration: underline !important;
 }
 .subscribe-btn {
-  background-color: #e6ccb8;
+  background-color: var(--accent-soft);
   letter-spacing: 1px;
   transition: opacity 0.3s ease;
 }

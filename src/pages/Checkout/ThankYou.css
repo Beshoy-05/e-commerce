@@ -1,0 +1,20 @@
+.thank-container{
+
+height:70vh;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+
+.thank-container h1{
+
+font-size:40px;
+
+}

@@ -17,25 +17,25 @@
   height: 110px;
   margin: auto;
   border-radius: 50%;
-  background: #f5f5f5;
+  background: var(--surface-alt);
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  color: #1f2937;
+  color: var(--text-high);
 }
 
 
 .empty-box h2 {
   margin-top: 25px;
   font-size: 32px;
-  color: #202040;
+  color: var(--text-high);
 }
 
 
 .empty-box p {
-  color: #777;
+  color: var(--text-secondary);
   line-height: 1.7;
   font-size: 16px;
 }
@@ -48,8 +48,8 @@
   border: none;
   border-radius: 30px;
 
-  background: #202040;
-  color: white;
+  background: var(--accent-dark);
+  color: var(--white);
 
   font-size: 16px;
   cursor: pointer;

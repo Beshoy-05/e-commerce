@@ -1,12 +1,12 @@
 .contact-page {
   background: var(--surface-soft);
-  min-height: 100vh;
-  padding: 60px 0;
+  min-height: auto;
+  padding: 40px 0 55px;
 }
 
-.contact-header {
-  text-align: center;
-  margin-bottom: 50px;
+.contact-header{
+    text-align:center;
+    margin-bottom:50px;
 }
 
 .contact-header h1 {
@@ -20,14 +20,14 @@
   font-size: 18px;
 }
 
-.contact-card{
+.contact-card {
   background: var(--surface);
   border-radius: 18px;
   padding: 35px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, .06);
 }
 
-.contact-item{
+.contact-item {
   margin: 20px 0;
   font-size: 17px;
   color: var(--text-secondary);
@@ -53,6 +53,12 @@
   transition: .3s;
 }
 
-.contact-card .send-btn:hover{
-    background:#574539;
+.contact-card .send-btn:hover {
+  background: var(--accent-hover);
 }
+
+/* Remove the extra footer top margin only on the Contact page */
+.contact-page + footer {
+    margin-top: 0 !important;
+}
+

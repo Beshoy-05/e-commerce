@@ -4,8 +4,8 @@
 
   border-radius: 50%;
 
-  background: #212529;
-  color: white;
+  background: var(--accent-dark);
+  color: var(--white);
 
   display: flex;
   justify-content: center;

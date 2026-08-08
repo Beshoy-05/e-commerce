@@ -5,11 +5,11 @@ import EmptyCart from "../../components/EmptyCart/EmptyCart";
 
 import "./Cart.css";
 
-
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const { cart, setCart } = useContext(CartContext);
+  const navigate = useNavigate();
 
   function increase(id) {
     setCart(
@@ -59,7 +59,7 @@ const Cart = () => {
               </p>
             </div>
             <div className="rightHeader">
-              <button  className="btn btn-danger rounded-5" onClick={clearCart}>
+              <button className="btn btn-danger rounded-5" onClick={clearCart}>
                 Clear Cart
               </button>
             </div>
@@ -68,7 +68,7 @@ const Cart = () => {
           <div className="row g-5">
             <div className="col-lg-7">
               {cart.length === 0 ? (
-               <EmptyCart />
+                <EmptyCart />
               ) : (
                 cart.map((item) => (
                   <div className="cart-item mb-4" key={item.id}>
@@ -133,7 +133,13 @@ const Cart = () => {
                   <span>${total.toFixed(2)}</span>
                 </div>
 
-                <button className="checkout-btn">Proceed To Checkout</button>
+                <button
+                  type="button"
+                  className="checkout-btn"
+                  onClick={() => navigate("/checkout")}
+                >
+                  Proceed To Checkout
+                </button>
 
                 <Link to="/shop" className="continue-btn">
                   Continue Shopping

@@ -1,18 +1,18 @@
 .wishlist-page {
   min-height: 100vh;
-  background: #fcfbf8;
+  background: var(--surface-muted);
   padding: 70px 0;
 }
 
 .wishlist-title {
   font-size: 58px;
   font-weight: 700;
-  color: #22213d;
+  color: var(--text);
   margin-bottom: 8px;
 }
 
 .wishlist-subtitle {
-  color: #909090;
+  color: var(--text-fade);
   font-size: 16px;
 }
 
@@ -22,15 +22,15 @@
 }
 
 .wishlist-card-title {
-  color: #22213d;
+  color: var(--text);
 }
 
 .wishlist-card-title:hover {
-  color: #8b5e3c;
+  color: var(--accent);
 }
 
 .wishlist-desc {
-  color: #909090;
+  color: var(--text-fade);
 }
 
 .item-actions:focus{
@@ -53,5 +53,5 @@
 }
 
 .wishlist-price {
-  color: #8b5e3c;
+  color: var(--accent);
 }
