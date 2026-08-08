@@ -4,11 +4,11 @@ import { SearchContext } from "../../context/search";
 import "./Filter.css";
 
 const Filter = () => {
-  const { setCategory, setPrice } = useContext(SearchContext);
+  const { setSearch,setCategory, setPrice } = useContext(SearchContext);
 
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [selectedPrice, setSelectedPrice] = useState(1000);
+  const [selectedPrice, setSelectedPrice] = useState(10000);
 
   useEffect(() => {
     getCategories().then((res) => {
@@ -17,6 +17,7 @@ const Filter = () => {
   }, []);
 
   function handleApply() {
+    setSearch("");
     setCategory(selectedCategory);
     setPrice(selectedPrice);
   }
