@@ -1,5 +1,5 @@
 .shop-page {
-  background: #f8f6f2;
+  background: var(--surface-muted);
   min-height: 100vh;
 }
 
@@ -8,13 +8,13 @@
 }
 
 .shop-page h1 {
-  color: #2d2a26;
+  color: var(--text);
   font-weight: 700;
   letter-spacing: 1px;
 }
 
 .shop-page p {
-  color: #7b746d;
+  color: var(--text-secondary);
 }
 
 .shop-container {
@@ -24,7 +24,7 @@
 }
 
 .products-section {
-  background: #fff;
+  background: var(--surface);
   border-radius: 18px;
   padding: 35px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
@@ -37,7 +37,7 @@
 }
 
 .filter {
-  background: #fff;
+  background: var(--surface);
   border-radius: 18px;
   padding: 25px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
@@ -51,7 +51,7 @@
 .spinner-border {
   width: 3rem;
   height: 3rem;
-  color: #6b4f3b;
+  color: var(--accent-dark);
 }
 
 

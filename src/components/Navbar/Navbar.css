@@ -1,11 +1,10 @@
-nav
-{
-    background-color: #fafaf9;
+nav {
+  background-color: var(--surface-soft);
 }
-.logo-text{
-    font-size:32px;
-    letter-spacing:8px;
-    font-weight:bold;
+.logo-text {
+  font-size: 32px;
+  letter-spacing: 8px;
+  font-weight: bold;
 }
 
 .navbar-actions{
@@ -18,9 +17,9 @@ nav
     position:relative;
 }
 
-.cart-icon{
-    position:relative;
-    color:black;
+.cart-icon {
+  position: relative;
+  color: var(--black);
 }
 
 .cart-icon .badge{
@@ -33,9 +32,9 @@ nav
 .nav-link{
     margin:0 10px;
 }
-.nav-link.active{
-    color:#8b5e3c;
-    border-bottom:2px solid #8b5e3c;
+.nav-link.active {
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
 }
 @media (max-width:991px){
 

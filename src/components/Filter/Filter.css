@@ -1,5 +1,5 @@
 .filter-card {
-  background: #fff;
+  background: var(--surface);
   padding: 25px;
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
@@ -21,7 +21,7 @@
 
 .form-check-label {
   cursor: pointer;
-  color: #555;
+  color: var(--text-secondary);
 }
 
 .form-check-input {
@@ -29,8 +29,8 @@
 }
 
 .form-check-input:checked {
-  background-color: #8b5e3c;
-  border-color: #8b5e3c;
+  background-color: var(--accent);
+  border-color: var(--accent);
 }
 
 .form-range {
@@ -39,12 +39,12 @@
 }
 
 .form-range::-webkit-slider-thumb {
-  background: #8b5e3c;
+  background: var(--accent);
 }
 
 .price-value {
   font-weight: bold;
-  color: #8b5e3c;
+  color: var(--accent);
 }
 
 .filter-card .btn {

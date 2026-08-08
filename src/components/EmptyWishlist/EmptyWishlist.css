@@ -4,9 +4,9 @@
 
 .empty-wishlist h2 {
   font-size: 28px;
-  color: #22213d;
+  color: var(--text);
 }
 
 .empty-wishlist p {
-  color: #909090;
+  color: var(--text-fade);
 }

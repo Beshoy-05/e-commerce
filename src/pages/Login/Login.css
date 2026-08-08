@@ -1,14 +1,18 @@
  .login-container {
-  min-height: calc(100vh - 90px);
+  min-height: calc(100vh - 75px);
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f8f8f8;
+  background: var(--surface-soft);
+  background-image: url('../../image/background.png');
+  background-size: cover;
+  background-position: center -230px;
+  background-repeat: no-repeat;
 }
 
 .login-card {
   width: 420px;
-  background: white;
+  background: var(--surface);
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, .1);
@@ -17,7 +21,7 @@
 .login-card h2 {
   text-align: center;
   margin-bottom: 25px;
-  color: #333;
+  color: var(--text-high);
 }
 
 .form-group {
@@ -28,7 +32,7 @@
   display: block;
   margin-bottom: 6px;
   font-weight: 500;
-  color: #333;
+  color: var(--text-high);
 }
 
 .form-group input {
@@ -41,7 +45,7 @@
 
 .form-group input:focus {
   outline: none;
-  border-color: #8b5e3c;
+  border-color: var(--accent);
   box-shadow: 0 0 0 2px rgba(139, 94, 60, 0.15);
 }
 
@@ -72,21 +76,21 @@
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
-  color: #777;
+  color: var(--text-secondary);
   transition: 0.3s;
   font-size: 18px;
 }
 
 .eye-icon:hover {
-  color: #8b5e3c;
+  color: var(--accent);
 }
 
 .login-btn {
   width: 100%;
   padding: 12px;
   border: none;
-  background:  #2B2521;
-  color: white;
+  background: var(--accent-dark);
+  color: var(--white);
   border-radius: 6px;
   cursor: pointer;
   font-size: 16px;
@@ -94,7 +98,7 @@
 }
 
 .login-btn:hover {
-  background: #70472b;
+  background: var(--accent-hover);
 }
 
 .register-link {
@@ -104,7 +108,7 @@
 }
 
 .register-link a {
-  color:  #2B2521;
+  color: var(--accent-dark);
   text-decoration: none;
   font-weight: 600;
 }
@@ -120,4 +124,47 @@
   background: #d1e7dd;
   color: #0f5132;
   border: 1px solid #badbcc;
+}
+
+@media (max-width: 992px) {
+  .login-container {
+    background-size: 180%;
+    background-position: center top;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    background-size: 220%;
+    background-position: center top;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    background-size: 260%;
+    background-position: center top;
+  }
+}
+
+@media (max-width: 992px) {
+  .login-container {
+    min-height: calc(100vh - 95px);
+  }
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    min-height: calc(100vh - 110px);
+    background-position: center top;
+    background-size: 140%;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    min-height: calc(100vh - 120px);
+    background-position: center top;
+    background-size: 160%;
+  }
 }
