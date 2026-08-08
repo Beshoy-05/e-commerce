@@ -26,6 +26,7 @@
   --color-accent-hover: #70472b;
   --color-black: #000;
   --color-white: #fff;
+  --color-red: #ff0000;
 
   --bg: var(--color-bg-light);
   --surface: var(--color-surface);
@@ -48,6 +49,7 @@
   --accent-hover: var(--color-accent-hover);
   --black: var(--color-black);
   --white: var(--color-white);
+  --red: var(--color-red);
 }
 
 body {

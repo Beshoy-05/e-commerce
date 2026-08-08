@@ -122,6 +122,6 @@ hr {
 }
 
 .field-error {
-  color: var(--color-accent-strong);
+  color: var(--color-red);
   font-size: 0.95rem;
 }

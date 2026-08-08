@@ -27,6 +27,7 @@ palette_block = '''
   --accent-hover: #70472b;
   --black: #000;
   --white: #fff;
+    --red: #ff0000;
 }
 '''
 

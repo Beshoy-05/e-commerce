@@ -166,5 +166,6 @@
     min-height: calc(100vh - 120px);
     background-position: center top;
     background-size: 160%;
+    background-size:stretch; 
   }
 }
